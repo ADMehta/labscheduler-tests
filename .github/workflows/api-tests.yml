@@ -2,51 +2,40 @@ name: Run Python Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    # 🧼 Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # 🐍 Set up Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'  # Change to your desired version
+        python-version: '3.11'
 
-    # 📦 Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest-html pytest-github-actions-annotate-failures
 
-    # 🧩 Install pytest plugins
-    - name: Install pytest plugins
+    - name: Run tests and generate reports
       run: |
-        pip install pytest-html
-        pip install pytest-github-actions-annotate-failures
+        mkdir -p test-reports
+        pytest \
+          --html=test-reports/report.html \
+          --self-contained-html \
+          --junit-xml=test-reports/results.xml \
+          --tb=short
 
-    #  HTML Preview in Git hib actions 
-    - name: HTML Preview
-      uses: pavi2410/html-preview-action@v2
-      with:
-        html_file: report.html
-
-
-    # 🧪 Run tests and generate HTML report
-    - name: Run tests
-      run: pytest --html=report.html --tb=short
-
-    # 📤 Upload HTML report as artifact
-    - name: Upload test report
+    - name: Upload test reports
       uses: actions/upload-artifact@v4
       with:
-        name: pytest-report
-        path: report.html
+        name: pytest-reports
+        path: test-reports/
