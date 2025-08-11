@@ -33,6 +33,13 @@ jobs:
         pip install pytest-html
         pip install pytest-github-actions-annotate-failures
 
+    #  HTML Preview in Git hib actions 
+    - name: HTML Preview
+      uses: pavi2410/html-preview-action@v2
+      with:
+        html_file: report.html
+
+
     # 🧪 Run tests and generate HTML report
     - name: Run tests
       run: pytest --html=report.html --tb=short
