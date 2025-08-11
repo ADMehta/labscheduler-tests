@@ -27,8 +27,8 @@ jobs:
           pip install pytest requests pytest-html
 
       - name: Run tests
-        run: |
-          pytest --html=report.html
+        run: pytest --html=report.html --tb=short --annotate
+
 
       - name: Upload report
         uses: actions/upload-artifact@v4
