@@ -59,14 +59,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure Backend URL
-
-Update `utils/api_client.py` with your backend API base URL:
-
-```python
-BASE_URL = "https://your-backend-url.replit.app/api"
-```
-
 ---
 
 ## 🧪 Running Tests
@@ -101,7 +93,7 @@ Includes tests for:
 
 ---
 
-## 🧩 CI/CD Integration (Extra Credit)
+## 🧩 CI/CD Integration in Github Actions 
 
 This project includes a GitHub Actions workflow (`.github/workflows/api-tests.yml`) that:
 
