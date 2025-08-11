@@ -1,7 +1,7 @@
 # README.md
-# Provides an overview of the project, setup instructions, how to run tests locally,
-# how the CI pipeline works, and how to view test reports.
-# Also includes notes on test structure and design decisions.
+Provides an overview of the project, setup instructions, how to run tests locally,
+How the CI pipeline Git hub Actions works, and how to view test reports.
+includes notes on test structure and design decisions.
 
 # 🧪 Lab Scheduler API Test Suite
 
@@ -121,6 +121,8 @@ on:
 ### Artifact Access
 
 After each run, the `report.html` is available in the GitHub Actions UI under **Artifacts**.
+Sample Test report
+<img width="1326" height="623" alt="Screenshot 2025-08-11 at 11 14 33 AM" src="https://github.com/user-attachments/assets/dad83ef7-09a6-42b1-8158-8f8d6f8b882b" />
 
 ---
 
