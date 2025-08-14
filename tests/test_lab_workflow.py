@@ -8,7 +8,7 @@ def lab_id():
         "name": "Central Medical Lab",
         "address": "456 Medical Ave",
         "city": "Boston",
-        "state": "MA",
+        "state": "CA",
         "zipCode": "02101",
         "phone": "(510) 987-6543"
     }
