@@ -39,7 +39,7 @@ def test_create_lab_with_missing_required_fields_should_fail():
         "phone": "(000) 000-0000"
     }
     response = create_lab(invalid_payload)
-    assert response.status_code == 200
+    assert response.status_code == 400
 
 @pytest.mark.order(1)
 def test_create_lab_and_validate_with_get_by_id(lab_id):
