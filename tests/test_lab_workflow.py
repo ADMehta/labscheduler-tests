@@ -10,7 +10,7 @@ def lab_id():
         "city": "Boston",
         "state": "MA",
         "zipCode": "02101",
-        "phone": "(555) 987-6543"
+        "phone": "(510) 987-6543"
     }
     response = create_lab(payload)
     assert response.status_code in [200, 201]
@@ -39,7 +39,7 @@ def test_create_lab_with_missing_required_fields_should_fail():
         "phone": "(000) 000-0000"
     }
     response = create_lab(invalid_payload)
-    assert response.status_code == 400  # Adjust if your API returns a different error code
+    assert response.status_code == 400
 
 @pytest.mark.order(1)
 def test_create_lab_and_validate_with_get_by_id(lab_id):
